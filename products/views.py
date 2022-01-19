@@ -18,3 +18,7 @@ class ProductCreate(generic.CreateView):
     success_url = reverse_lazy('products:home')
     fields = ['name']
 
+
+class ProductDetail(generic.DetailView):
+    template_name = "products/detail.html"
+    queryset = Product.objects.all()

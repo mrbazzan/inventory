@@ -6,6 +6,15 @@
         color: blue;
         text-decoration: none;
     }
+    .content > header {
+      border-bottom: 1px solid lightgray;
+      display: flex;
+      align-items: flex-end;
+    }
+    .content > header h1 {
+      flex: auto;
+      margin: 1rem 0 0.25rem 0;
+    }
     .link-space {
         padding-right: 20px;
     }
@@ -16,11 +25,13 @@
 {% endblock %}
 
 {% block post %}
+    <div class="content">
+        <header>
+            <h1>Inventories</h1>
+            <a href="{% url 'products:create' %}">New Inventory</a>
+        </header>
+    </div>
 
-    <header>
-        <h1>Inventories</h1>
-        <a href="{% url 'products:create' %}">New Inventory</a>
-    </header>
 
 {% endblock %}
 
@@ -31,7 +42,7 @@
         <article class="post">
             <li>
                 <div>
-                    <h1><a href=""> {{product.name}} </a></h1>
+                    <h1><a href="{% url 'products:detail' product.id %}"> {{product.name}} </a></h1>
                 </div>
             </li>
 
