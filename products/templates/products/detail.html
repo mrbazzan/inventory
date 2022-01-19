@@ -33,6 +33,8 @@
     <article class="post">
         <div>
             <h1>{{object.name}}</h1>
+            <a href="{% url 'products:edit' product.id %}">Edit</a>
+            <a href="{% url 'products:delete' product.id %}">Delete</a>
         </div>
 
     </article>
