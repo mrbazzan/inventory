@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IMB</title>
+        <link rel="stylesheet" href="">
+
+        {% block style %} {% endblock %}
+    </head>
+
+    <body>
+        <nav>
+            <h1><a href="{% url 'products:home'%}">Inventory Management Platform</a></h1>
+        </nav>
+
+        <section class="content">
+            {% block post %} {% endblock %}
+            {% block content %} {% endblock %}
+        </section>
+    </body>
+</html>

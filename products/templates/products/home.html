@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    a {
+        color: blue;
+        text-decoration: none;
+    }
+    .link-space {
+        padding-right: 20px;
+    }
+    .page-view {
+        margin-top: 0;
+    }
+</style>
+{% endblock %}
+
+{% block post %}
+
+    <header>
+        <h1>Inventories</h1>
+        <a href="{% url 'products:create' %}">New Inventory</a>
+    </header>
+
+{% endblock %}
+
+
+{% block content %}
+    {% for product in object_list %}
+    <ul>
+        <article class="post">
+            <li>
+                <div>
+                    <h1><a href=""> {{product.name}} </a></h1>
+                </div>
+            </li>
+
+        </article>
+    </ul>
+    {% endfor %}
+
+
+    {% if is_paginated %}
+    <nav>
+        {% if page_obj.has_previous %}
+            <span class="link-space">
+                <a href="/?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            </span>
+        {% endif %}
+
+        {% for number in  paginator.page_range %}
+            {% if page_obj.number == number %}
+                <span class="link-space">
+                    {{ number|safe }}
+                </span>
+            {% else %}
+                {% if page_obj.number > number|add:"-5" and page_obj.number < number|add:"3" %}
+                    <span class="link-space">
+                        <a href="/?page={{ number }}">{{ number }}</a>
+                    </span>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <span class="link-space">
+                <a href="/?page={{ page_obj.next_page_number }}">&raquo;</a>
+            </span>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+{% endblock %}
