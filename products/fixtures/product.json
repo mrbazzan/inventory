@@ -1,0 +1,22 @@
+[
+  {
+    "model": "products.Product",
+    "pk": 1,
+    "fields": {
+      "name": "Samsung S3",
+      "description": "A blue Samsung Galaxy S3 phone",
+      "driver": 2,
+      "location": "Ghana"
+    }
+  },
+  {
+    "model": "products.Product",
+    "pk": 2,
+    "fields": {
+      "name": "Pen",
+      "description": "A gravity pen",
+      "driver": 3,
+      "location": "Arkansas, US"
+    }
+  }
+]

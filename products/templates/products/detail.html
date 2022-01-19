@@ -33,6 +33,16 @@
     <article class="post">
         <div>
             <h1>{{object.name}}</h1>
+            <div>
+                <p>{{ object.description }}</p>
+            </div>
+            <div>
+                <p>
+                    <span>NOTE:</span>
+                    This item, {{ object.name }}, will be delivered to {{ object.location }}
+                    by {{ object.driver }}.
+                </p>
+            </div>
             <a href="{% url 'products:edit' product.id %}">Edit</a>
             <a href="{% url 'products:delete' product.id %}">Delete</a>
         </div>

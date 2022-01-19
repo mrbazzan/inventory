@@ -3,12 +3,6 @@
 {% block content %}
     <form method="post" action="">
         {% csrf_token %}
-<!--        <p>-->
-<!--            <label for="id_author">Delivered by:</label>-->
-<!--            <select name="author" required id="id_author">-->
-<!--                <option value="{{ worker.id }}" selected>{{ worker.name }}</option>-->
-<!--            </select>-->
-<!--        </p>-->
         {{ form.as_p }}
         <input type="submit" value="{{ type }}">
     </form>

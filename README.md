@@ -46,7 +46,28 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
-- Run server and proceed to the 127.0.0.1:8000
+- Load some default data
+```shell
+python3 manage.py loaddata user.json
+python3 manage.py loaddata product.json
+```
+
+- Create superuser
+```shell
+python3 manage.py createsuperuser
+```
+After that, the [admin page](http://127.0.0.1/admin) can be
+accessed using the username and password from the `createsuperuser` above.
+
+
+- Run server 
 ```shell
 python3 manage.py runserver
 ```
+and proceed to the 127.0.0.1:8000
+
+NB: Because the web app models a logistic company, it is assumed that the company
+has agents(driver) that ensure items in the inventory gets delivered to the exact
+location. This is why there is a need to populate some data initially(data migration).
+
+You can also opt not to load default data, but there is a need to create superuser.

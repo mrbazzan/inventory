@@ -16,7 +16,7 @@ class ProductCreate(generic.CreateView):
     model = Product
     template_name = "products/new.html"
     success_url = reverse_lazy('products:home')
-    fields = ['name']
+    fields = ['name', 'description', 'location', 'driver']
 
     def get_context_data(self, **kwargs):
         kwargs["type"] = "Create"
@@ -31,10 +31,10 @@ class ProductDetail(generic.DetailView):
 class ProductEdit(generic.UpdateView):
     queryset = Product.objects.all()
     template_name = "products/new.html"
-    fields = ['name']
+    fields = ['name', 'description', 'location']
 
     def get_success_url(self):
-        return reverse_lazy('products:detail', args=(self.kwargs["pk"]))
+        return reverse_lazy('products:detail', args=(self.kwargs["pk"],))
 
     def get_context_data(self, **kwargs):
         kwargs["type"] = "Edit"

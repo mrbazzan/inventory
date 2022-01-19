@@ -1,0 +1,24 @@
+[
+  {
+    "model": "auth.User",
+    "pk": 2,
+    "fields": {
+      "username": "Company Car 1"
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 3,
+    "fields": {
+      "username": "Company Car 2"
+    }
+  },
+  {
+    "model": "auth.User",
+    "pk": 4,
+    "fields": {
+      "username": "Company Car 3",
+      "first_name": "default"
+    }
+  }
+]
