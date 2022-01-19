@@ -44,15 +44,9 @@ class ProductEdit(generic.UpdateView):
 
 
 class ProductDelete(generic.DeleteView):
+    model = Product
     success_url = reverse_lazy("products:home")
-    template_name = None
-
-    def get_object(self, queryset=None):
-        return Product.objects.filter(id=self.kwargs["pk"])
-
-    def render_to_response(self, context, **response_kwargs):
-        self.get_object().delete()
-        return HttpResponseRedirect(self.success_url)
+    template_name = "products/delete.html"
 
 
 def generate_csv_view(request):
