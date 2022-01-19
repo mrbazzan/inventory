@@ -1,7 +1,9 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Product
 from django.views import generic
 from django.urls import reverse_lazy
+
+import csv
 # Create your views here.
 
 
@@ -51,3 +53,19 @@ class ProductDelete(generic.DeleteView):
     def render_to_response(self, context, **response_kwargs):
         self.get_object().delete()
         return HttpResponseRedirect(self.success_url)
+
+
+def generate_csv_view(request):
+    response = HttpResponse(
+        content_type="text/csv",
+        headers={'Content-Disposition': 'attachment;filename="products.csv"'},
+    )
+
+    if not Product.objects.all():
+        return HttpResponse("No inventory data.")
+
+    writer = csv.writer(response)
+    for data in Product.objects.all():
+        writer.writerow([data.id, data.description, data.location, data.driver.username])
+
+    return response

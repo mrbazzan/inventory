@@ -18,21 +18,22 @@
     .link-space {
         padding-right: 20px;
     }
-    .page-view {
-        margin-top: 0;
+    .button {
+        margin-right: 10px;
+        margin-bottom: 2px;
     }
 </style>
 {% endblock %}
+
 
 {% block post %}
     <div class="content">
         <header>
             <h1>Inventories</h1>
+            <a class="button" href="{% url 'products:generate_csv' %}">Generate CSV</a>
             <a href="{% url 'products:create' %}">New Inventory</a>
         </header>
     </div>
-
-
 {% endblock %}
 
 

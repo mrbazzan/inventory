@@ -71,3 +71,6 @@ has agents(driver) that ensure items in the inventory gets delivered to the exac
 location. This is why there is a need to populate some data initially(data migration).
 
 You can also opt not to load default data, but there is a need to create superuser.
+
+## ADDITIONAL TASK
+- Push a button export product data to CSV.

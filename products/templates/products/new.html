@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block style %}
+<style>
+    a {
+        color: blue;
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
     <form method="post" action="">
         {% csrf_token %}
